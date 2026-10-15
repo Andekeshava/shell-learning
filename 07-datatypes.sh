@@ -10,5 +10,5 @@ echo "sum of three numbers are: $(($A+$B+$C+$D))"
 
 MOBILES=(Iphone, Samsung, Iqoo, Realme, Vivo, Oppo)
 
-echo "Costily mobile is: $MOBILES[0]"
-echo "Most trending mobiles brands in the world are: $MOBILES[@]"
+echo "Costily mobile is: ${MOBILES[0]}"
+echo "Most trending mobiles brands in the world are: ${MOBILES[@]}"
