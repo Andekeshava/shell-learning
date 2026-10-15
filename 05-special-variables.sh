@@ -12,5 +12,5 @@ echo "PID of the script running in the background is: $!"
 sleep 10 &
 wait $!
 echo "total time taken to execute the script is: $SECONDS"
-echos "realpath: $(realpath $0)"
+echo "realpath: $(realpath $0)"
 echo "exit status code of the previous command is: $?"
