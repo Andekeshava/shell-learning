@@ -1,6 +1,7 @@
 #!/bin/bash
 
 echo "all the passed varailbles are: $@"
+echo "all the aruguments passed as a word are: $*"
 echo "number of arguments passed are: $#"
 echo " PID of the present script is: $$"
 echo "who is running your script: $HOME"
