@@ -13,6 +13,6 @@ MOBILES=("Iphone" "Samsung" "Iqoo" "Realme" "Vivo" "Oppo")
 echo "Costily mobile is: ${MOBILES[0]}"
 echo "Most trending mobiles brands in the world are: ${MOBILES[@]}"
 
-declar -i num=5
+declare -i num=5
 num=num+1
 echo "$num"
