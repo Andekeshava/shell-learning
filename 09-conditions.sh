@@ -1,0 +1,15 @@
+#!/bin/bash
+
+USER_ID = $(id -u)
+
+if [ $? -ne 0 ]; then
+   echo "Run the command using sudo access"
+   exit 1
+fi
+
+dnf install nginx -y
+
+if [ $? -et 0 ]; then
+   echo "Nginx installation is Success"
+else
+   echo "Nginx Installation is failed" 
