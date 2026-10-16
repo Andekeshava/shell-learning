@@ -11,8 +11,10 @@ elif [ $marks -gt 60]; then
    echo "2nd class"
 elif [ $marks -gt 70]; then
     echo "1st class"
-elif [$marks -gt 80]; then
+elif [ $marks -gt 80 ]; then
     echo "outstanding"
 
 else
    echo "fail"
+
+fi   
