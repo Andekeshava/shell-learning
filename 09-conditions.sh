@@ -7,7 +7,7 @@ if [ $USER_ID -ne 0 ]; then
    exit 1
 fi
 
-dnf install nginx -y
+dnf install nginx -no
 
 if [ $? -eq 0 ]; then
    echo "Nginx installation is Success"
