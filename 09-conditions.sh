@@ -1,6 +1,6 @@
 #!/bin/bash
 
-USER_ID = $(id -u)
+USER_ID=$(id -u)
 
 if [ $USER_ID -ne 0 ]; then
    echo "Run the command using sudo access"
@@ -13,3 +13,5 @@ if [ $? -et 0 ]; then
    echo "Nginx installation is Success"
 else
    echo "Nginx Installation is failed" 
+fi
+
