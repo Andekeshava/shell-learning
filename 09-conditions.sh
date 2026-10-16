@@ -2,7 +2,7 @@
 
 USER_ID = $(id -u)
 
-if [ $? -ne 0 ]; then
+if [ $USER_ID -ne 0 ]; then
    echo "Run the command using sudo access"
    exit 1
 fi
