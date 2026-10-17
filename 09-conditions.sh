@@ -10,8 +10,18 @@ fi
 dnf install nginx -no
 
 if [ $? -eq 0 ]; then
-   echo "Nginx installation is Success"
+   echo "Nginx installation is failed"
+   exit 1
 else
-   echo "Nginx Installation is failed" 
+   echo "Nginx Installation is success" 
 fi
+
+dnf install mysql -y
+
+if [ $? -ne 0 ]; then
+   echo "MySql installation is failed"
+   exit 1
+else 
+   echo "Mysql installation is success"
+fi       
 
