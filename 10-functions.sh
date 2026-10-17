@@ -13,9 +13,13 @@ validate(){
        exit 1
     else
        echo "${2} Success"    
+    fi   
 }
 
 echo "running....pls wait...."
 dnf install nginx -y
 
-validate $? "Installation is"
+validate $? "Nginx Installation is"
+
+dnf install mysql -y
+validate $? "Mysql installation is"
