@@ -3,14 +3,14 @@
 USER_ID=$(id -u)
 
 log_folder="/var/log/shell-learning"
-log_file="${log_folder}/$0.log"
+log_file="${log_folder}/${0}.log"
 
 if [ ${USER_ID} -ne 0 ]; then
    echo "Please execute the script with sudo access"
    exit 1
 fi
 
-mkdir -p ${log_folder}
+mkdir -p "${log_folder}"
 
 
 
@@ -27,6 +27,7 @@ validate(){
 echo "Installing nginx...."
 dnf install nginx -y &>> ${log_file}
 validate $? "nginx installation is"
+
 
 if systemctl is-active --quiet nginx; then
    echo "Nginx is still not running"
