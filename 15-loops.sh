@@ -27,7 +27,7 @@ do
   if [ $? -ne 0 ]; then
      echo "${package} is installing"
      dnf install $package -y &>> $log_file
-     validate $? "${package} is"
+     validate $? "${package} installation is"
   else
      echo "$package is already installed"
   fi   
