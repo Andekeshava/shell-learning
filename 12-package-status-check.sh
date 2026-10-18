@@ -2,7 +2,7 @@
 
 USER_ID=$(id -u)
 
-log_folder="/var/log/shell-learning"
+log_folder="/var/log/shell-learning/"
 log_file="${log_folder}/${0}.log"
 
 if [ ${USER_ID} -ne 0 ]; then
@@ -14,7 +14,7 @@ mkdir -p "${log_folder}"
 
 
 
-validate(){
+validate() {
     if [ $1 -ne 0 ]; then
        #systemctl enable nginx
        echo "${2} failed" | tee -a $log_file
