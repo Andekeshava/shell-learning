@@ -30,7 +30,7 @@ validate $? "nginx installation is"
 
 
 if systemctl is-active --quiet nginx; then
-   echo "Nginx is still not running"
+   echo "Nginx is already running"
 else 
    echo "Nginx is still not running...starting nginx" | tee -a ${log_file}
 
