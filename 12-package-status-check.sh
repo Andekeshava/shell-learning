@@ -10,18 +10,41 @@ if [ ${USER_ID} -ne 0 ]; then
    exit 1
 fi
 
-mkdir -p ${log_file}
+mkdir -p ${log_folder}
+
+
 
 validate(){
     if [ $1 -ne 0 ]; then
-       echo "${2} not in running state" | tee -a $log_file
+       #systemctl enable nginx
+       echo "${2} failed" | tee -a $log_file
+       exit 1
     else
-       echo "${2} is in running state" | tee -a $log_file
+       echo "${2} success" | tee -a $log_file
     fi       
 }
 
-for status in nginx; do
-   dnf install nginx -y &>> ${log_file}
-   systemctl status nginx &>> ${log_file}
-   validate $? "nginx status"
-done   
+echo "Installing nginx...."
+dnf install nginx -y &>> ${log_file}
+validate $? "nginx installation is"
+
+if systemctl is-active --quiet nginx; then
+   echo "Nginx is still not running"
+else 
+   echo "Nginx is still not running...starting nginx" | tee -a ${log_file}
+
+   systemctl enable nginx &>> ${log_file}
+   validate $? "Nginx enable is"
+
+   systemctl start nginx &>> ${log_file}
+   validate $? "Nginx start is"
+fi
+
+if systemctl is-active --quiet nginx; then
+   echo "Nginx is running successfully" | tee -a ${log_file}
+else
+   echo "Nginx is still failing" | tee -a ${log_file}
+   exit 1
+fi   
+
+
