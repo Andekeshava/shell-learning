@@ -14,16 +14,16 @@ mkdir -p ${log_folder}
 
 validate(){
     if [ ${1} -ne 0 ]; then
-       echo "${2} failed"
+       echo "${2} failed" | tee -a ${log_file}
        exit 1
     else
-       echo "${2} success"
+       echo "${2} success" | tee -a ${log_file}
     fi         
 }
 
 for package in $@;
 do
   echo "installing $package......"
-  dnf install $package -y
+  dnf install $package -y &>> ${log_file}
   validate $? "${package} is"
 done  
