@@ -19,7 +19,7 @@ fi
 
 echo "Scanning files older than 14days to delete"
 
-files_to_delete = $(find "$source_dir" -name "*.log" -type f -mtime +$days)
+files_to_delete=$(find "$source_dir" -name "*.log" -type f -mtime +$days)
 
 if [ -z $files_to_delete ]; then
    echo "No files older than 14days are found"
