@@ -2,7 +2,7 @@
 
 source_dir=$1
 destination_dir=$2
-days={3:-14}
+days=${3:-14}
 
 usage(){
     echo "USAGE: $0 [source_dir] [Destination_dir] [Days are options, by default it takes 14days]"
@@ -20,7 +20,7 @@ fi
 
 echo "Scanning the files"
 
-files_to_archive=$( find $source_dir -name "*.log" -type f -mtime +$days )
+files_to_archive=$(find $source_dir -name "*.log" -type f -mtime +$days)
 
 if [ -z "$files_to_archive" ]; then
    echo "ALRET: There are no files older than 14days"
