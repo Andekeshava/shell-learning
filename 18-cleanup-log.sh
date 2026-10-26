@@ -32,4 +32,6 @@ do
   rm -rf $line
   echo "Files which are deleted are: $line"
 done <<< $files_to_delete
+
+# <<< --> used for varaibles
    
