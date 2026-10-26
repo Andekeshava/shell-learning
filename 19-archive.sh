@@ -40,7 +40,7 @@ else
    echo "==== File is compresed ===="
    while IFS= read -r line
    do
-     echo "Log files are archived"
+     echo "==== Log files are archived ===="
      rm -rf $line
      echo "==== Files are Deleted ===="
    done <<< $files_to_archive
