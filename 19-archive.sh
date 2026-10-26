@@ -20,10 +20,10 @@ fi
 
 echo "Scanning the files"
 
-files_to_archive=$( find $source_dir --name "*.log" --type f --mtime +$days )
+files_to_archive=$( find $source_dir -name "*.log" -type f -mtime +$days )
 
 if [ -z "$files_to_archive" ]; then
-   echo "ALRET: There are not files older than 14days"
+   echo "ALRET: There are no files older than 14days"
    exit 0
 fi
 
