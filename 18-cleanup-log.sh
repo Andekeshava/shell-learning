@@ -17,7 +17,7 @@ if [ ! -d "$source_dir" ]; then
    echo "ERROR:: $source_dir doesn't exist"
 fi
 
-echo "Scanning files older than 14days to delete"
+echo "==== Scanning files older than 14days to delete ===="
 
 files_to_delete=$(find "$source_dir" -name "*.log" -type f -mtime +$days)
 
@@ -30,8 +30,7 @@ while IFS= read -r line
 do
   echo "Files which are going to be deleted are: $line"
   rm -rf $line
-  echo "Files which are deleted are: $line"
+  echo "===== Files are not deleted ====="
 done <<< $files_to_delete
 
 # <<< --> used for varaibles
-   
