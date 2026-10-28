@@ -6,11 +6,11 @@ server_ip=$(curl http://169.254.169.254/latest/meta-data/local-ipv4)
 
 while IFS= read -r line
 do
-   usage=$(echo $line | awk '{print $6}' | cut -d "%" -f1)
-   partition=$(echo $line | awk '{print $7}')
+   usage=$(echo "$line" | awk '{print $6}' | cut -d "%" -f1)
+   partition=$(echo "$line" | awk '{print $7}')
    
-   if [ "$usage" -gt "$threshold" ]; then
-      message+="High disk usage on $partition: "$usage" %<br>"
+   if [ "$usage" -ge "$threshold" ]; then
+      message+="High disk usage on "$partition": "$usage" %<br>"
    fi
 
 done <<< "$disk_usage"
